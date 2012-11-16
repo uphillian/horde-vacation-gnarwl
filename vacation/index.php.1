@@ -1,0 +1,124 @@
+<?php
+/**
+ * Copyright 2002-2012 Horde LLC (http://www.horde.org/)
+ *
+ * See the enclosed file COPYING for license information (GPL). If you
+ * did not receive this file, see http://www.horde.org/gpl.php.
+ *
+ * @author  Eric Rostetter <eric.rostetter@physics.utexas.edu>
+ * @author  Jan Schneider <jan@horde.org>
+ * @package Vacation
+ */
+
+require_once __DIR__ . '/lib/Application.php';
+Horde_Registry::appInit('vacation');
+
+$backends = Vacation::getBackends();
+$userid = $registry->getAuth();
+
+// Get the backend details.
+$backend_key = Horde_Util::getFormData('backend');
+if (!isset($backends[$backend_key])) {
+    $backend_key = null;
+}
+
+if (!$backend_key) {
+    goto proceed;
+}
+
+// Has the user submitted the form yet?
+if (!Horde_Util::getFormData('submit')) {
+    // No so we don't need to do anything in this loop.
+    goto proceed;
+}
+
+$driver = $backends[$backend_key]['driver'];
+$params = $backends[$backend_key]['params'];
+$password_policy = isset($backends[$backend_key]['policy'])
+    ? $backends[$backend_key]['policy']
+    : array();
+
+// Check for users that cannot set vacation messages
+if (in_array($userid, $conf['user']['refused'])) {
+    $notification->push(sprintf(_("You can't set vacation message for user %s"),
+                                $userid), 'horde.error');
+    goto proceed;
+}
+
+// Create a Vacation_Driver instance.
+try {
+    $daemon = $GLOBALS['injector']->getInstance('Vacation_Factory_Driver')->setBackends($backends)->create($backend_key);
+}
+catch (Vacation_Exception $e) {
+    Horde::logMessage($e);
+    $notification->push(_("Vacation module is not properly configured"),
+                        'horde.error');
+    goto proceed;
+}
+
+try {
+    $res = $daemon->changePassword($backend_userid, $old_password,
+                                   $new_password0);
+    if (!isset($backends[$backend_key]['no_reset']) ||
+        !$backends[$backend_key]['no_reset']) {
+        Vacation::resetCredentials($old_password, $new_password0);
+    }
+
+    $notification->push(sprintf(_("Vacation set on %s."),
+                                $backends[$backend_key]['name']), 'horde.success');
+
+    try {
+        Horde::callHook('password_changed', array($backend_userid, $old_password, $new_password0), 'passwd');
+    } catch (Horde_Exception_HookNotSet $e) {
+    }
+
+} catch (Exception $e) {
+    $notification->push(sprintf(_("Failure in changing password for %s: %s"),
+                                $backends[$backend_key]['name'],
+                                $e->getMessage()), 'horde.error');
+}
+
+proceed:
+
+// Choose the prefered backend from config/backends.php.
+foreach ($backends as $key => $current_backend) {
+    if (!isset($backend_key) && substr($key, 0, 1) != '_') {
+        $backend_key = $key;
+    }
+    if (Vacation::isPreferredBackend($current_backend)) {
+        $backend_key = $key;
+        break;
+    }
+}
+
+$view = new Horde_View(array('templatePath' => VACATION_TEMPLATES));
+new Horde_View_Helper_Text($view);
+$view->formInput = Horde_Util::formInput();
+$view->backend = $backend_key;
+$view->label = (object)array(
+    'subject'      => Horde::label('subject', _("Subject of the vacation message:")),
+    'message'      => Horde::label('message', _("Vacation message:")),
+    'howoften'     => Horde::label('enabled', _("How often to send replies:")));
+$view->help = (object)array(
+    'subject'         => Horde_Help::link('vacation', 'vacation-subject'),
+    'message'         => Horde_Help::link('vacation', 'vacation-message'),
+    'howoften'        => Horde_Help::link('vacation', 'vacation-howoften'));
+
+$view->howoften_options = array('1'=>'once in 60 minutes', '4'=>'once in 4 hours', '8'=>'once in 8 hours', '12'=>'once in 12 hours',
+                               '24'=>'once a day', '48'=>'once in 2 days', '72'=>'once in 3 days', '120'=>'once in 5 days',
+                               '168'=>'once in 7 days');
+
+$view->header = sprintf(_("Setting or disabling vacation message on %s"),
+                        htmlspecialchars($backends[$backend_key]['name']));
+
+$page_output->addScriptFile('stripe.js', 'horde');
+$page_output->addInlineScript(array(
+    '$(\'vacation\').focusFirstElement()'
+), true);
+
+$page_output->header(array(
+    'title' => _("Vacation Message")
+));
+$notification->notify(array('listeners' => 'status'));
+echo $view->render('index');
+$page_output->footer();

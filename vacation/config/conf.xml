@@ -1,0 +1,42 @@
+<?xml version="1.0"?>
+<!-- $Horde: vacation/config/conf.xml,v 1.15.2.13 2009-08-18 12:54:49 jan Exp $ -->
+<configuration>
+ <configsection name="vacation">
+  <configheader>Vacation Settings</configheader>
+  <configstring name="path" required="false" desc="Location of the vacation
+  program, if necessary for your server">
+   /usr/bin/vacation
+  </configstring>
+  <configstring name="validation_pattern" required="false" desc="You can
+   restrict vacation messages to match a certain pattern, if you like. If this
+   config value is non-empty, it is expected to be a PCRE regular
+   expression. Include the pattern delimiters, and any modifiers that you want
+   applied. See:
+   http://www.php.net/manual/en/pcre.pattern.syntax.php."/>
+  <configphp name="default_subject" required="false" desc="The default vacation
+  subject">_("On vacation message")</configphp>
+  <configphp name="default_message" required="false" desc="The default vacation
+  message">_("I'm on vacation and will not be reading my mail for a while.\nYour mail will be dealt with when I return.")</configphp>
+  <configboolean name="subject" desc="Does your vacation setup support
+   configurable email subjects?">true</configboolean>
+  <configboolean name="from" desc="Allow users to change the email sender
+  (From: header) if the driver supports it?">true</configboolean>
+ </configsection>
+
+ <configsection name="user">
+  <configheader>Refused user names</configheader>
+   <configlist name="refused" desc="Define usernames for which we will refuse
+    to activate
+    vacation.">root,bin,daemon,adm,lp,shutdown,halt,uucp,ftp,anonymous,nobody,httpd,operator,guest,diginext,bind,cyrus,courier,games,kmem,mailnull,man,mysql,news,postfix,sshd,tty,www</configlist>
+ </configsection>
+
+ <configsection name="menu">
+  <configheader>Menu Settings</configheader>
+  <configmultienum name="apps" desc="Select any applications that should be
+   linked in Vacation's menu">
+   <values>
+    <configspecial name="list-horde-apps" />
+   </values>
+  </configmultienum>
+ </configsection>
+</configuration>

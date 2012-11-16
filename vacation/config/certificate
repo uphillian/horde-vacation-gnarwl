@@ -1,0 +1,85 @@
+CONNECTED(00000003)
+---
+Certificate chain
+ 0 s:/C=US/O=ldap2.math.ias.edu/OU=GT20008081/OU=See www.rapidssl.com/resources/cps (c)09/OU=Domain Control Validated - RapidSSL(R)/CN=ldap2.math.ias.edu
+   i:/C=US/O=Equifax/OU=Equifax Secure Certificate Authority
+-----BEGIN CERTIFICATE-----
+MIIDNjCCAp+gAwIBAgIDDCMMMA0GCSqGSIb3DQEBBQUAME4xCzAJBgNVBAYTAlVT
+MRAwDgYDVQQKEwdFcXVpZmF4MS0wKwYDVQQLEyRFcXVpZmF4IFNlY3VyZSBDZXJ0
+aWZpY2F0ZSBBdXRob3JpdHkwHhcNMDkwNzI3MDkzMDAzWhcNMTQwODI3MDQ1NTAy
+WjCBwDELMAkGA1UEBhMCVVMxGzAZBgNVBAoTEmxkYXAyLm1hdGguaWFzLmVkdTET
+MBEGA1UECxMKR1QyMDAwODA4MTExMC8GA1UECxMoU2VlIHd3dy5yYXBpZHNzbC5j
+b20vcmVzb3VyY2VzL2NwcyAoYykwOTEvMC0GA1UECxMmRG9tYWluIENvbnRyb2wg
+VmFsaWRhdGVkIC0gUmFwaWRTU0woUikxGzAZBgNVBAMTEmxkYXAyLm1hdGguaWFz
+LmVkdTCBnzANBgkqhkiG9w0BAQEFAAOBjQAwgYkCgYEAtXpWTgI0h6kSqSXOsVkP
+1qyQCZl0v4sYDBSqgj5uVomH8MCZawGuVIKb3N1buUna16nsl0/9WRCSH9SkTMPN
+AIgondsp6vMdfbCHweWIDh+xLGnE1mqOkSh7Rjgq2K7fmkx9CnPFfe1FKtfJjkmT
+S+RyI3HQ5hdBxBFeAztRpJcCAwEAAaOBrjCBqzAOBgNVHQ8BAf8EBAMCBPAwHQYD
+VR0OBBYEFDvY8l2hNdo17M62zjKf430sbjIkMDoGA1UdHwQzMDEwL6AtoCuGKWh0
+dHA6Ly9jcmwuZ2VvdHJ1c3QuY29tL2NybHMvc2VjdXJlY2EuY3JsMB8GA1UdIwQY
+MBaAFEjmaPkr0rKV10fYIyAQTzOYkJ/UMB0GA1UdJQQWMBQGCCsGAQUFBwMBBggr
+BgEFBQcDAjANBgkqhkiG9w0BAQUFAAOBgQBgpMK0Rz1hLVhl7nn6BGtSH3sjAaPK
+N1PxEU/fD+deHBjniq8J/yp4TPADv4t8wpf9yozT6gZBgBkM7SudOdkvfnXrELdB
+gWsK+wZricFVU8cuR4OA3hE2V3OrJXYMa2hlIYvV2JSaf1kC2n+Toq/e16kTJYvK
+kmEtIUm+QODbgw==
+-----END CERTIFICATE-----
+ 1 s:/C=US/O=Equifax/OU=Equifax Secure Certificate Authority
+   i:/C=US/O=Equifax/OU=Equifax Secure Certificate Authority
+-----BEGIN CERTIFICATE-----
+MIIDIDCCAomgAwIBAgIENd70zzANBgkqhkiG9w0BAQUFADBOMQswCQYDVQQGEwJV
+UzEQMA4GA1UEChMHRXF1aWZheDEtMCsGA1UECxMkRXF1aWZheCBTZWN1cmUgQ2Vy
+dGlmaWNhdGUgQXV0aG9yaXR5MB4XDTk4MDgyMjE2NDE1MVoXDTE4MDgyMjE2NDE1
+MVowTjELMAkGA1UEBhMCVVMxEDAOBgNVBAoTB0VxdWlmYXgxLTArBgNVBAsTJEVx
+dWlmYXggU2VjdXJlIENlcnRpZmljYXRlIEF1dGhvcml0eTCBnzANBgkqhkiG9w0B
+AQEFAAOBjQAwgYkCgYEAwV2xWGcIYu6gmi0fCG2RFGiYCh7+2gRvE4RiIcPRfM6f
+BeC4AfBONOziipUEZKzxa1NfBbPLZ4C/QgKO/t0BCezhABRP/PvwDN1Dulsr4R+A
+cJkVV5MW8Q+XarfCaCMczE1ZMKxRHjuvK9buY0V7xdlfUNLjUA86iOe/FP3gx7kC
+AwEAAaOCAQkwggEFMHAGA1UdHwRpMGcwZaBjoGGkXzBdMQswCQYDVQQGEwJVUzEQ
+MA4GA1UEChMHRXF1aWZheDEtMCsGA1UECxMkRXF1aWZheCBTZWN1cmUgQ2VydGlm
+aWNhdGUgQXV0aG9yaXR5MQ0wCwYDVQQDEwRDUkwxMBoGA1UdEAQTMBGBDzIwMTgw
+ODIyMTY0MTUxWjALBgNVHQ8EBAMCAQYwHwYDVR0jBBgwFoAUSOZo+SvSspXXR9gj
+IBBPM5iQn9QwHQYDVR0OBBYEFEjmaPkr0rKV10fYIyAQTzOYkJ/UMAwGA1UdEwQF
+MAMBAf8wGgYJKoZIhvZ9B0EABA0wCxsFVjMuMGMDAgbAMA0GCSqGSIb3DQEBBQUA
+A4GBAFjOKer89961zgK5F7WF0bnj4JXMJTENAKaSbn+2kmOeUJXRmm/kEd5jhW6Y
+7qj/WsjTVbJmcVfewCHrPSqnI0kBBIZCe/zuf6IWUrVnZ9NA2zsmWLIodz2uFHdh
+1voqZiegDfqnc1zqcPGUIWVEX/r87yloqaKHee9570+sB3c4
+-----END CERTIFICATE-----
+---
+Server certificate
+subject=/C=US/O=ldap2.math.ias.edu/OU=GT20008081/OU=See www.rapidssl.com/resources/cps (c)09/OU=Domain Control Validated - RapidSSL(R)/CN=ldap2.math.ias.edu
+issuer=/C=US/O=Equifax/OU=Equifax Secure Certificate Authority
+---
+Acceptable client certificate CA names
+/C=US/ST=New Jersey/L=Princeton/O=Institute for Advanced Study/OU=School of Mathematics/CN=ldap.math.ias.edu
+/C=US/O=GeoTrust, Inc./CN=RapidSSL CA
+/C=US/ST=New Jersey/L=Princeton/O=Institute for Advanced Study/OU=School of Mathematics/CN=kobe.math.ias.edu
+/C=ZA/ST=Western Cape/L=Cape Town/O=Thawte Consulting cc/OU=Certification Services Division/CN=Thawte Premium Server CA/emailAddress=premium-server@thawte.com
+/C=US/ST=New Jersey/L=Princeton/O=Institute for Advanced Study/OU=School of Mathematics/CN=ldap3.math.ias.edu/emailAddress=sys-admins@math.ias.edu
+/C=US/O=GeoTrust Inc./CN=GeoTrust Global CA
+/C=US/O=Equifax Secure Inc./CN=Equifax Secure Global eBusiness CA-1
+/C=US/O=Equifax Secure/OU=Equifax Secure eBusiness CA-2
+/C=US/ST=New Jersey/L=Princeton/O=IAS/OU=Networking Group/CN=app3.net.ias.edu/emailAddress=postmaster@ias.edu
+/DC=edu/DC=ias/DC=math/CN=caracas.math.ias.edu
+/C=US/O=Equifax/OU=Equifax Secure Certificate Authority
+---
+SSL handshake has read 3180 bytes and written 323 bytes
+---
+New, TLSv1/SSLv3, Cipher is AES256-SHA
+Server public key is 1024 bit
+Secure Renegotiation IS supported
+Compression: NONE
+Expansion: NONE
+SSL-Session:
+    Protocol  : TLSv1
+    Cipher    : AES256-SHA
+    Session-ID: 05D01E67F80E493DFE6A382B955E5714CBF999EBB48309F1AB31319F9251C675
+    Session-ID-ctx: 
+    Master-Key: FB50F71DD06158CF6E72B75407C21FA32D10877A5EDFCE2CD4F12D7FD5B589E5D9C6D2BEE2B1C0FE76B93EA45CF2A9A1
+    Key-Arg   : None
+    Krb5 Principal: None
+    PSK identity: None
+    PSK identity hint: None
+    Start Time: 1353004918
+    Timeout   : 300 (sec)
+    Verify return code: 0 (ok)
+---
